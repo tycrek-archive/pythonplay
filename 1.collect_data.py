@@ -27,6 +27,8 @@ starting_value = 1 # The index to start naming training files with.
 file_name = 'training_data-{}-{}.npy'.format(training_id, starting_value)
 training_data = []
 
+SAVE_INTERVAL = 5000 # How many frames to take before saving
+
 
 while(True): # Check if the current training files exist and make a new start value.
     if os.path.isfile(file_name):
@@ -50,6 +52,7 @@ def main():
     global file_name
     global starting_value
     global training_id
+    global SAVE_INTERVAL
 
     while(True):
 
@@ -68,8 +71,8 @@ def main():
             if len(training_data) % 100 == 0:
                 print(len(training_data))
 
-            if len(training_data) % 1000 == 0:
-                print(len(training_data))
+            if len(training_data) % SAVE_INTERVAL == 0:
+                print('Saved data in file  ' + file_name)
                 np.save(file_name,training_data)
                 starting_value += 1
                 training_data = []
