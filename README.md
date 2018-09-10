@@ -69,7 +69,7 @@ Depending on the system you have and how much data you collected, **this can tak
 
 ## Known issues
 
-- `Error in CuDNN: CUDNN_STATUS_ALLOC_FAILED`: You do not have enough GPU RAM. In script3, make `BATCH_SIZE` smaller.
+- `Error in CuDNN: CUDNN_STATUS_ALLOC_FAILED`: You do not have enough GPU RAM. In script3, make `BATCH_SIZE` smaller. For script 4, [see this Issue](https://github.com/tycrek/pythonplay/issues/1#issue-358746664)
 - "My AI only drives straight!": Collect more data and make it good data, read the tips in Step 1.
 - "My AI crashes into stuff all the time!": Read the above issue.
 - "I'm having trouble installing Tensorflow GPU" or "I'm getting weird tensorflow errors": **GOOGLE IT**. I didn't make Tensorflow and I barely understand the basics, so I can't exactly help you there.
