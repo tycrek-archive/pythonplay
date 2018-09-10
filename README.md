@@ -13,9 +13,9 @@ Pythonplay currently supports driving a car in the bestselling game, Grand Theft
 
 All of these requirements are specific. Python 3.6.x must be used for compatibility.
 
-> 64-bit Windows 7, 8, 8.1, 10
-> Python 3.6.x 64-bit
-> [Script Hook V + Native Trainer for GTA V](https://www.gta5-mods.com/tools/script-hook-v)
+> 64-bit Windows 7, 8, 8.1, 10  
+Python 3.6.x 64-bit  
+[Script Hook V + Native Trainer for GTA V](https://www.gta5-mods.com/tools/script-hook-v)
 
 If you wish to use your GPU for training (no multi-GPU support right now), follow [this guide](https://www.tensorflow.org/install/install_windows) to set up Tensorflow GPU. The GPU method is much more difficult to set up, but is *ridiculously* faster than CPU training. However, if you want to use a pre-trained model, GPU is **not** required.
 
@@ -73,7 +73,7 @@ Depending on the system you have and how much data you collected, **this can tak
 - "My AI only drives straight!": Collect more data and make it good data, read the tips in Step 1.
 - "My AI crashes into stuff all the time!": Read the above issue.
 - "I'm having trouble installing Tensorflow GPU" or "I'm getting weird tensorflow errors": **GOOGLE IT**. I didn't make Tensorflow and I barely understand the basics, so I can't exactly help you there.
-- "My AI just went on a mass genocide!": Burn your computer. Then go into hiding.
+- "My AI just went on a mass genocide!": Um..... run. Hide.
 
 ## Roadmap
 
