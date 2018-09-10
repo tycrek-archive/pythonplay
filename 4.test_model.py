@@ -14,7 +14,9 @@ WIDTH = 160
 HEIGHT = 120
 LR = 1e-3
 EPOCHS = 10
-MODEL_NAME = 'pygta5-car-fast-{}-{}-{}-epochs-36K-data.model'.format(LR, 'alexnetv2',EPOCHS)
+# !!!!! You know what to do with this by now.
+training_id = 'Tycrek001'
+MODEL_NAME = 'pythonplay-{}-{}-epochs.model'.format(training_id,EPOCHS)
 
 t_time = 0.09
 

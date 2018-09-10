@@ -21,7 +21,8 @@ def keys_to_output(keys):
         output[1] = 1
     return output
 
-training_id = '' # The label for the training files.
+# !!!!! Change training_id to whatever you want, but keep it consistent in script 2 and script 3!
+training_id = 'Tycrek001' # The label for the training files.
 starting_value = 1 # The index to start naming training files with.
 file_name = 'training_data-{}-{}.npy'.format(training_id, starting_value)
 training_data = []
@@ -45,6 +46,11 @@ def main():
 
     paused = False
     
+    global training_data
+    global file_name
+    global starting_value
+    global training_id
+
     while(True):
 
         if not paused:
@@ -73,10 +79,10 @@ def main():
         if 'T' in keys:
             if paused:
                 paused = False
-                print('unpaused!')
+                print('Unpaused!')
                 time.sleep(1)
             else:
-                print('Pausing!')
+                print('Paused!')
                 paused = True
                 time.sleep(1)
 
