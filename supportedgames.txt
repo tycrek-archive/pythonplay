@@ -1,0 +1,21 @@
+How to format this file:
+
+#\#\#\#\#\#\
+Game:		<name>
+Support:	<[full,limited,experimental]
+Actions: 	<description (i.e. Driving, walking)>
+GoodKeys:	<safe keys (i.e. W A S D F Q G)>
+BadKeys:	<avoid these>
+Plans:		<description (i.e. Add crouching)>
+#/#/#/#/#/#/
+
+-------------------------------------------------
+
+#\#\#\#\#\#\
+Game:		Grand Theft Auto V
+Support:	Limited
+Actions: 	Driving
+GoodKeys:	WASD
+BadKeys:	T
+Plans:		Add Space bar, brakes
+#/#/#/#/#/#/

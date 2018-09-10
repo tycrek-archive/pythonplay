@@ -6,13 +6,27 @@ import cv2
 import time
 from getkeys import key_check
 import os
+from keydefs import keylist
+
 
 ## Convert our input keys to an array for Numpy
 ## [A,W,D] boolean values
 #! TO-DO: Add more keys
-def keys_to_output(keys):
-    output = [0,0,0]
+def keys_to_output(keys): #                                        26
+    output = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0, 0,0,0,0,0,0,0,0,0,0]
     
+
+    for key in keylist:
+    	if key in keys:
+    		if key.isalpha():
+    			output[ord(key) - 65] = 1 # Any letter
+    		elif key == " ":
+    			output[26] = 1 # Space bar
+    		elif key.isdigit():
+    			output[(ord(key) - 48) + 27] = 1
+    return output
+
+'''
     if 'A' in keys:
         output[0] = 1
     elif 'D' in keys:
@@ -20,6 +34,7 @@ def keys_to_output(keys):
     else:
         output[1] = 1
     return output
+'''
 
 # !!!!! Change training_id to whatever you want, but keep it consistent in script 2 and script 3!
 training_id = 'Tycrek001' # The label for the training files.

@@ -4,9 +4,10 @@ import numpy as np
 from grabscreen import grab_screen
 import cv2
 import time
-from directkeys import PressKey,ReleaseKey, W, A, S, D
+from directkeys import PressKey,ReleaseKey,ReleaseAll,keydict
 from alexnet import alexnet
 from getkeys import key_check
+import keydefs
 
 import random
 
@@ -20,6 +21,7 @@ MODEL_NAME = 'pythonplay-{}-{}-epochs.model'.format(training_id,EPOCHS)
 
 t_time = 0.09
 
+'''
 def straight():
 ##    if random.randrange(4) == 2:
 ##        ReleaseKey(W)
@@ -45,7 +47,9 @@ def right():
     #ReleaseKey(D)
     time.sleep(t_time)
     ReleaseKey(D)
-    
+'''
+
+
 model = alexnet(WIDTH, HEIGHT, LR)
 model.load(MODEL_NAME)
 
@@ -68,8 +72,18 @@ def main():
             screen = cv2.resize(screen, (160,120))
 
             prediction = model.predict([screen.reshape(160,120,1)])[0]
-            print(prediction)
+            #print(prediction)
 
+            threshold = 0.75
+
+            keystage = []
+            for i in range(len(prediction)):
+            	if prediction[i] > threshold:
+            		keystage.append(i)
+
+            press_keys(keystage)
+
+'''
             turn_thresh = .75
             fwd_thresh = 0.70
 
@@ -81,6 +95,7 @@ def main():
                 right()
             else:
                 straight()
+'''
 
         keys = key_check()
 
@@ -91,9 +106,7 @@ def main():
                 time.sleep(1)
             else:
                 paused = True
-                ReleaseKey(A)
-                ReleaseKey(W)
-                ReleaseKey(D)
+                ReleaseAll()
                 time.sleep(1)
 
 main()       
