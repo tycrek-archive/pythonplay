@@ -30,6 +30,8 @@ If you wish to use your GPU for training (no multi-GPU support right now), follo
 
 ## How to use
 
+**NOTE: Current scripts have not been tested! Script 2 is also definitely broken.**
+
 Read the scripts for modification instructions. Also read them to change parameters for filenames.
 
 ### 1. Collecting training data
