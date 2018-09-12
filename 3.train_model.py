@@ -3,12 +3,12 @@
 import numpy as np
 from alexnet import alexnet
 
-WIDTH = 160
-HEIGHT = 120
+WIDTH = 400
+HEIGHT = 300
 LR = 1e-3
-EPOCHS = 10
+EPOCHS = 6
 # !!!!! Change training_id to what you used in script 1 and script 2!
-training_id = 'Tycrek001'
+training_id = 'BarnabusX002'
 MODEL_NAME = 'pythonplay-{}-{}-epochs.model'.format(training_id,EPOCHS)
 LOAD_PREVIOUS_MODEL = False # if you want to improve an existing model, change to true
 
@@ -21,13 +21,13 @@ if LOAD_PREVIOUS_MODEL:
     model.load(MODEL_NAME)
     print("Loaded previous model!")
 
-train_files_end = 200 # how many training files you have
+train_files_end = 11 # !!!!! how many training files you have
 end_count = EPOCHS * train_files_end
 count = 1
 for i in range(EPOCHS):
     for i in range(1, train_files_end + 1):
         print("\n\nStep " + str(count) + "/" + str(end_count))
-        train_data = np.load('balanced_training_data-{}-{}.npy'.format(training_id, i))
+        train_data = np.load('trimmed_training_data-{}-{}.npy'.format(training_id, i))
         #train_data = np.load('training_data.npy')
 
         train = train_data[:-100]

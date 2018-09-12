@@ -10,8 +10,6 @@ from keydefs import keylist
 
 
 ## Convert our input keys to an array for Numpy
-## [A,W,D] boolean values
-#! TO-DO: Add more keys
 def keys_to_output(keys): #                                        26
     output = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0, 0,0,0,0,0,0,0,0,0,0]
     
@@ -37,7 +35,7 @@ def keys_to_output(keys): #                                        26
 '''
 
 # !!!!! Change training_id to whatever you want, but keep it consistent in script 2 and script 3!
-training_id = 'Tycrek001' # The label for the training files.
+training_id = 'BarnabusX002' # The label for the training files.
 starting_value = 1 # The index to start naming training files with.
 file_name = 'training_data-{}-{}.npy'.format(training_id, starting_value)
 training_data = []
@@ -75,8 +73,8 @@ def main():
             # 800x600 windowed mode
             screen = grab_screen(region=(0,40,800,640)) # Take a screenshot
             last_time = time.time()
-            screen = cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
-            screen = cv2.resize(screen, (160,120)) # Resize the screenshot to something more reasonable for a NN
+            screen = cv2.cvtColor(screen, cv2.COLOR_BGR2RGB)
+            screen = cv2.resize(screen, (400,300)) # Resize the screenshot to something more reasonable for a NN
 
             keys = key_check()
             output = keys_to_output(keys)

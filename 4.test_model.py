@@ -7,16 +7,16 @@ import time
 from directkeys import PressKey,ReleaseKey,ReleaseAll,keydict
 from alexnet import alexnet
 from getkeys import key_check
-import keydefs
+from keydefs import press_keys
 
 import random
 
-WIDTH = 160
-HEIGHT = 120
+WIDTH = 400
+HEIGHT = 300
 LR = 1e-3
-EPOCHS = 10
+EPOCHS = 6
 # !!!!! You know what to do with this by now.
-training_id = 'Tycrek001'
+training_id = 'BarnabusX002'
 MODEL_NAME = 'pythonplay-{}-{}-epochs.model'.format(training_id,EPOCHS)
 
 t_time = 0.09
@@ -60,6 +60,7 @@ def main():
         time.sleep(1)
 
     paused = False
+    last_keys = []
     while(True):
         
         if not paused:
@@ -68,22 +69,31 @@ def main():
             screen = grab_screen(region=(0,40,800,640))
             print('loop took {} seconds'.format(time.time()-last_time))
             last_time = time.time()
-            screen = cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
+            screen = cv2.cvtColor(screen, cv2.COLOR_BGR2RGB)
             screen = cv2.resize(screen, (160,120))
 
             prediction = model.predict([screen.reshape(160,120,1)])[0]
             #print(prediction)
 
-            threshold = 0.75
+            threshold = 0.1
 
             keystage = []
             for i in range(len(prediction)):
             	if prediction[i] > threshold:
             		keystage.append(i)
 
-            press_keys(keystage)
+            '''
+            if len(keystage) > 2:
+                largest = max(keystage)
+                largest2 = max(item for item in keystage if item < largest)
+                keystage = []
+                keystage.append(largest)
+                keystage.append(largest2)
+            '''
+            press_keys(keystage, last_keys)
+            last_keys = keystage
 
-'''
+            '''
             turn_thresh = .75
             fwd_thresh = 0.70
 
@@ -95,7 +105,7 @@ def main():
                 right()
             else:
                 straight()
-'''
+            '''
 
         keys = key_check()
 

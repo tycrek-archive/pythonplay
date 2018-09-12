@@ -6,10 +6,12 @@ from collections import Counter
 from random import shuffle
 
 # !!!!! Change training_id to what you used in script 1!
-training_id = 'Tycrek001' # The label for the training files.
+training_id = 'BarnabusX002' # The label for the training files.
 starting_value = 1 # !!!!! Whatever your training files start with
-ending_value = 200 # !!!!! Whatever your training files end with
+ending_value = 11 # !!!!! Whatever your training files end with
 file_name = 'training_data-{}-{}.npy'.format(training_id, starting_value)
+
+TRIM_SIZE = 4 # !!!!! Must be a factor of SAVE_INTERVAL in script 1
 
 
 for i in range(starting_value, ending_value + 1): # Iterate through all the training files
@@ -19,6 +21,13 @@ for i in range(starting_value, ending_value + 1): # Iterate through all the trai
     print(df.head())
     print(Counter(df[1].apply(str)))
 
+    shuffle(train_data)
+    final_data = []
+    for i2 in range(0, len(train_data), TRIM_SIZE):
+        final_data.append(train_data[i2])
+
+    shuffle(final_data)
+    '''
     lefts = []
     rights = []
     forwards = []
@@ -45,5 +54,6 @@ for i in range(starting_value, ending_value + 1): # Iterate through all the trai
 
     final_data = forwards + lefts + rights
     shuffle(final_data)
+    '''
 
-    np.save('balanced_training_data-{}-{}.npy'.format(training_id, i), final_data)
+    np.save('trimmed_training_data-{}-{}.npy'.format(training_id, i), final_data)
