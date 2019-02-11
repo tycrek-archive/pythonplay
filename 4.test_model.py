@@ -70,9 +70,9 @@ def main():
             print('loop took {} seconds'.format(time.time()-last_time))
             last_time = time.time()
             screen = cv2.cvtColor(screen, cv2.COLOR_BGR2RGB)
-            screen = cv2.resize(screen, (160,120))
+            screen = cv2.resize(screen, (400,300))
 
-            prediction = model.predict([screen.reshape(160,120,1)])[0]
+            prediction = model.predict([screen.reshape(400,300,3)])[0]
             #print(prediction)
 
             threshold = 0.1

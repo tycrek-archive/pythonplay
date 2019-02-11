@@ -1,4 +1,4 @@
-# create_training_data.py
+# collect_data.py
 
 import numpy as np
 from grabscreen import grab_screen
@@ -11,6 +11,7 @@ from keydefs import keylist
 
 ## Convert our input keys to an array for Numpy
 def keys_to_output(keys): #                                        26
+	#         A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z spc 0,1,2,3,4,5,6,7,8,9
     output = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, 0, 0,0,0,0,0,0,0,0,0,0]
     
 
@@ -102,5 +103,9 @@ def main():
                 paused = True
                 time.sleep(1)
 
-
+print("PythonPlay by Tycrek")
+print("- - - - - - - - - - -")
+print("To pause at any time, press T")
+print("To quit, press CTRL-C")
+print("")
 main()
